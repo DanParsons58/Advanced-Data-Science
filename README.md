@@ -1,2 +1,2 @@
-# Advanced-Data-Science
-CSCI E-29 (25473) Work
+# Problemsets
+Problemsets for csci-e-29
