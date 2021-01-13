@@ -1,2 +1,1 @@
-# Problem Sets
-Problemsets for csci-e-29
+# Repository for csci-e-29 Advanced Python for Data Science
