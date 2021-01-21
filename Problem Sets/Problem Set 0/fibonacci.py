@@ -1,26 +1,24 @@
-import math
-
-
-def f(x):
-    if x <= 1:
-        return x
-    else:
-        return f(x - 1) + f(x - 2)
-
-
-
-
-
 def optimized_fibonacci(n):
     """
-    Utilizes Binet's formula to calculate the nth fibonacci number.
+    List iteration has greater scalability for finding fibonacci numbers.
 
-    Optimizes for memory and time complexity by avoiding recursion.
+    When compared to the recursive method, this method does not need to recalculate old values,
+    sums them from
     :param x: nth fibonacci number
     :return: provides the nth fibonacci number
     """
 
-    return int((1 / (2 ** n * math.sqrt(5))) * ((1 + math.sqrt(5)) ** n - (1 - math.sqrt(5)) ** n))
+    if n < 0:
+        raise Exception('Number must be greater than or equal to zero')
+    if n >= 0:
+        fib = [0, 1]
+        for i in range(2, n+1):
+            fib.append(fib[-1] + fib[-2])
+        return fib[-1] + fib[-2]
 
 
-print(optimized_fibonacci(1))
+print(optimized_fibonacci(100000))
+
+class SummableSequence(object):
+    def __init__(self, ):
+
