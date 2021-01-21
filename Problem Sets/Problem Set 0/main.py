@@ -1,3 +1,7 @@
 import pyramid
+import fibonacci
 
-pyramid.print_pyramid(3)
+pyramid
+print(fib(4))
+
+
