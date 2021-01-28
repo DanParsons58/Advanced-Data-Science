@@ -5,7 +5,7 @@ def print_pyramid(n):
     such that the pyramid is inside a box
     """
     if n <= 0:
-        return 'invalid input'
+        raise Exception('Number must be greater than or equal to zero')
     if n >= 1:
         m = n - 1
         for n in range(n):
