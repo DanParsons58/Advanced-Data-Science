@@ -7,9 +7,10 @@ def last_8(some_int):
     :param int some_int: the number
     :rtype: int
     """
-    new_str = (str(some_int))[-8]
-    new_int =  int(new_str)
-    return some_int[-8]
+    new_str = str(some_int)
+    short_str = new_str[-9:-1]
+    new_int = int(short_str)
+    return new_int
 
 
 def optimized_fibonacci(f):
