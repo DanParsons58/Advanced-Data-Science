@@ -2,7 +2,7 @@
 
 
 def last_8(some_int):
-    """Return the last 8 digits of an int
+    """Return the last 8 digits of an int.
 
     :param int some_int: the number
     :rtype: int
@@ -52,12 +52,12 @@ class SummableSequence(object):
         if (self.output < 0) or (self.num < 0) or (type(self.initial) != list):
             raise Exception('improper parameter entry')
         if self.output <= len(self.initial):
-            return self.initial[self.output - 1]
+            return self.initial[self.output]
         if self.output > len(self.initial):
             for length in range(self.output - len(self.initial)):
                 sum = 0
                 for i in range(self.num):
-                    if 1 < -len(self.initial):
+                    if len(self.initial) < length:
                         break
                     sum += self.initial[-i - 1]
                 self.initial.append(sum)

@@ -12,10 +12,13 @@ try:
     # Absent on Windows, trigger AttributeError
     signal.alarm
 
+
     def _timeout(signum, frame):
         raise TimeoutError()
 
+
     signal.signal(signal.SIGALRM, _timeout)
+
 
     @contextmanager
     def timeout(seconds=1, message="Timeout!"):
@@ -66,13 +69,23 @@ class FibTests(TestCase):
             with timeout(message="Timeout running f({})".format(n)):
                 self.assertEqual(expected, optimized_fibonacci(n))
 
-    def test_summable(self):
-        ss = SummableSequence(0, 1)
+    def test_summable_timeout(self):
+        ss = SummableSequence(4, [1, 3, 5])
         for n in range(0, 50, 5):
             with timeout(message="Timeout running f({})".format(n)):
-                raise NotImplementedError(
-                    "You should implement this and other SummableSequence tests!"
-                )
+                self.assertEqual()
+
+    def test_summable_values(self):
+        st = SummableSequence(5, [3, 6, 9])
+        for n, expected in [
+            # Check progressively more complex values, see if time out
+            (0, 3),
+            (1, 6),
+            (5, 72),
+            (6, 141),
+        ]:
+            with timeout(message="Timeout running f({})".format(n)):
+                self.assertEqual(expected, st(n))
 
 
 class TestTimeout(TestCase):
