@@ -30,11 +30,25 @@ def optimized_fibonacci(f):
         return fib[-1] + fib[-2]
 
 class SummableSequence(object):
-    def __init__(self, *initial):
-        raise NotImplementedError()
+    def __init__(self, num, initial, output ):
+        self.num = num
+        self.initial = initial
+        self.output = output
 
-    def __call__(self, i):
-        raise NotImplementedError()
+    def __call__(self):
+        if (self.output < 0) or (self.num < 0) or (type(self.initial) != list):
+            raise Exception('improper parameter entry')
+        if self.output <= len(self.initial):
+            return self.initial[self.output-1]
+        if self.output >len(self.initial):
+            for length in range(self.output - len(self.initial)):
+                sum = 0
+                for i in range(self.num):
+                    if (-i-1 <-len(self.initial)):
+                        break
+                    sum += self.initial[-i-1]
+                self.initial.append(sum)
+            return self.initial[-1]
 
 
 if __name__ == "__main__":
