@@ -31,13 +31,12 @@ class SummableSequence(object):
     output = the number in the list that is returned
     """
 
-    def __init__(self, num, initial, output):
-        self.num = num
-        self.initial = initial
-        self.output = output
+    def __init__(self, initial_string):
+        self.initial_string = initial_string
 
-    def __call__(self, num, initial, output):
-        if (self.output < 0) or (self.num < 0) or (type(self.initial) != list):
+
+    def __call__(self, output):
+        if (self.output < 0) or (type(self.initial_string) != list):
             raise Exception('Improper parameter entry')
         if self.output <= len(self.initial):
             return self.initial[self.output-1]
