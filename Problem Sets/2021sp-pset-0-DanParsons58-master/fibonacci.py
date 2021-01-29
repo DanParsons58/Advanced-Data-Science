@@ -51,13 +51,13 @@ class SummableSequence(object):
         self.output = output
         if (self.output < 0) or (self.num < 0) or (type(self.initial) != list):
             raise Exception('improper parameter entry')
-        if self.output <= len(self.initial):
+        if self.output < len(self.initial):
             return self.initial[self.output]
-        if self.output > len(self.initial):
-            for length in range(self.output - len(self.initial)):
+        if self.output >= len(self.initial):
+            for length in range(self.output - len(self.initial)+ 1):
                 sum = 0
                 for i in range(self.num):
-                    if len(self.initial) < length:
+                    if len(self.initial) == i:
                         break
                     sum += self.initial[-i - 1]
                 self.initial.append(sum)

@@ -73,14 +73,15 @@ class FibTests(TestCase):
         ss = SummableSequence(4, [1, 3, 5])
         for n in range(0, 50, 5):
             with timeout(message="Timeout running f({})".format(n)):
-                self.assertEqual()
+                self.assertEqual(ss(n), ss(n))
 
     def test_summable_values(self):
         st = SummableSequence(5, [3, 6, 9])
         for n, expected in [
-            # Check progressively more complex values, see if time out
+            # Check various answers, ensure they return correctly
             (0, 3),
             (1, 6),
+            (2, 9),
             (5, 72),
             (6, 141),
         ]:
